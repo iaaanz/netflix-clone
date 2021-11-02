@@ -26,7 +26,7 @@
                 <input class="email" type="password" placeholder="Password" />
               </div>
               <div class="btn">
-                <button class="btn-primary" type="submit" @click.prevent="Login">Sign In</button>
+                <button class="btn-primary" type="submit" @click.prevent="login">Sign In</button>
               </div>
               <div class="help">
                 <div>
@@ -97,7 +97,15 @@ export default {
     };
   },
   methods: {
-    
+    login() {
+      this.axios.get('http://127.0.0.1:8000/api/json')
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
